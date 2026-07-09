@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Dove</title>
+			<link rel="stylesheet" href="Css/style.css">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<style>
+
+
+
+
+.testimonials{
+    width:100%;
+    text-align:center;
+	display:flex;	
+    flex-direction: column;
+	margin-bottom:30px;
+}
+
+
+.testimonial-wrapper{
+    display:flex;	
+    justify-content:center;
+    gap:70px;
+    flex-wrap:wrap;
+}
+
+.card1{
+    background:#fff;
+    width:300px;
+    padding:25px;
+    box-shadow:0 3px 10px rgba(0,0,0,.1);
+}
+
+.quote{
+    font-size:35px;
+    color:goldenrod;
+}
+
+.card1 p{
+    margin:15px 0;
+    color:#444;
+    line-height:1.6;
+}
+
+.card1 img{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    
+}
+
+.testimonials-h1{color: royalblue;
+margin-bottom: 50px;
+}
+
+
+.banner {
+  background: linear-gradient(135deg, #5a1a1a, #ff7a00);
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.content p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.search-box {
+  display: flex;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.search-box input {
+  border: none;
+  padding: 10px;
+  outline: none;
+}
+
+.cta-btn {
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+
+
+
+</style>
+		</head>
+		<body>
+
+		<nav>
+			<div class="logo">Dove</div>
+			<ul>
+				<li><a href="#">PRODUCTS</a></li>
+				<li><a href="#">OUR MISSION</a></li>
+				<li><a href="#">TIPS & CARE</a></li>
+			</ul>
+		</nav>
+
+		<div class="main">
+			<div class="hero-content">
+				<p>#KEEPHERCONFIDENT</p>
+				<h1>Building Body<br>Confidence in Sports</h1>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St</p>
+				<button class="button1">DISCOVER MORE</button>
+			</div>
+			
+
+			<img src="C:\Users\Admin\Desktop\Saquib\Dove girl image.jpg">
+		</div>
+		
+		
+
+<div class="Main-Card">
+    <h1 align="center">Our Features</h1>
+
+    <div class="card-container">
+
+        <div class="card">
+            <img src="https://t4.ftcdn.net/jpg/05/61/83/99/240_F_561839932_GW1vgFttjZGYzCkxeguZHtdtXxfKGVmO.jpg" alt="Card 1">
+            <h3>Card 1</h3>
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
+			<button>DISCOVER MORE</button>
+        </div>
+
+        <div class="card">
+			<img src="https://media.istockphoto.com/id/1055099140/photo/making-hairstory-everyday-with-gorgeous-hair.jpg?s=612x612&w=0&k=20&c=x-Hxtr85HmZ_U5o7-KNzLCNi63drTeijFnuFcpz5kUU=" alt="Card 2">
+            <h3>Card 2</h3>
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
+			<button class="button1">DISCOVER MORE</button>
+        </div>
+
+        <div class="card">
+            <img src="https://t3.ftcdn.net/jpg/05/73/29/84/360_F_573298462_DmWb0oNCsX0zZ5YEkpEtxIn1k0j5GIkc.jpg" alt="Card 3">
+            <h3>Card 3</h3>
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
+			<button class="button1">DISCOVER MORE</button>
+        </div>
+
+    </div>
+</div>	
+			
+ 
+		<section class="testimonials">
+
+    <div class="sub-title">TESTIMONIALS</div>
+    <h1 class="testimonials-h1">What our clients say about us.</h1>
+
+    <div class="testimonial-wrapper">
+
+        <div class="card1">
+            <div class="quote">❝</div>
+            <p>I've been working with these guys for a long time and I can say that my house is in the perfect hands.</p>
+            <img src="https://randomuser.me/api/portraits/men/32.jpg">
+            <h4>Allan Collins</h4>
+        </div>
+
+        <div class="card1">
+            <div class="quote">❝</div>
+            <p>Working with Sentry Oak is just great, every problem in my house is solved in a matter of days.</p>
+            <img src="https://randomuser.me/api/portraits/men/45.jpg">
+            <h4>Clay Worthington</h4>
+        </div>
+
+        <div class="card1">
+            <div class="quote">❝</div>
+            <p>Once a pipe burst in my kitchen and an hour later it was already repaired, thanks to Sentry Oak.</p>
+            <img src="https://randomuser.me/api/portraits/women/44.jpg">
+            <h4>Tonya Oram</h4>
+        </div>
+
+    </div>
+
+    
+
+</section>
+
+		<div class="banner">
+  <div class="content">
+    <h2>Travel without limit</h2>
+    <p>Find your dream place for your trip with amazing destination</p>
+  </div>
+
+  <div class="search-box">
+    <input type="text" placeholder="Your destination">
+    <button class="cta-btn">🔍</button>
+  </div>
+</div>
+
+		
+		
+	  
+		</body>
+	</html>
+
+
+
+css
+
+
+		
+		body { 
+		  margin: 0; 
+		} 
+
+		.card img { 
+		  width: 100%; 
+		  border-radius: 500px 500px 0 0; 
+		} 
+
+		.card-container { 
+		  width: 100%; 
+		  display: flex; 
+		  justify-content: space-evenly; 
+		  flex-wrap: wrap; 
+		} 
+
+		.card { 
+		  border: 1px solid #0b2c8f; 
+		  padding: 20px; 
+		  margin: 80px; 
+		  border-radius: 500px 500px 0 0; 
+		} 
+
+		.card:hover { 
+		  box-shadow: 0px 10px 20px rgba(65, 105, 225, 0.3); 
+		}
+
+		
+
+		nav, .main { 
+		  display: flex; 
+		  justify-content: space-between; 
+		  align-items: center; 
+		} 
+
+		nav { 
+		  padding: 10px 50px; 
+		  border-bottom: 4px solid #0b2c8f; 
+		} 
+
+		.logo { 
+		  font-size: 40px; 
+		  font-style: italic; 
+		  color: #1f2c7a; 
+		} 
+
+		ul { 
+		  display: flex; 
+		  gap: 50px; 
+		  list-style: none; 
+		} 
+
+		a { 
+		  text-decoration: none; 
+		  color: #3d4370; 
+		} 
+
+		a:hover { 
+		  color: #007bff; 
+		}
+		
+		
+		
+		h1 { 
+		  color: royalblue; 
+		} 
+
+		.button1 { 
+		  border: none; 
+		  border-radius: 0 40% 0 40%; 
+		  padding: 15px 30px; 
+		  background: royalblue; 
+		  color: #fff; 
+		  cursor: pointer; 
+		} 
+
+		.button1:hover { 
+		  color: white; 
+		  background-color: #00008B; 
+		}
+
+		.hero-content { 
+		  width: 50%; 
+		  padding: 0 60px; 
+		} 
+
+		.main img { 
+		  width: 50%; 
+		  border-radius: 500px 0 0 500px; 
+		} 
+
+		
+		@media screen and (max-width: 992px) { 
+		  nav { 
+			padding: 15px 25px; 
+		  } 
+		  
+		  ul { 
+			gap: 20px; 
+		  } 
+		  
+		  .hero-content { 
+			width: 50%; 
+			padding: 20px; 
+		  } 
+		  
+		  .main img { 
+			width: 45%; 
+		  } 
+		}
+
+		
+		@media screen and (max-width: 768px) { 
+		  nav { 
+			flex-direction: column; 
+			text-align: center; 
+		  } 
+		  
+		  ul { 
+			flex-direction: column; 
+			gap: 15px; 
+		  } 
+		  
+		  .main { 
+			flex-direction: column; 
+			text-align: center; 
+			padding: 20px; 
+		  } 
+		  
+		  .hero-content { 
+			width: 80%; 
+			padding: 0; 
+		  } 
+		  
+		  .main img { 
+			width: 100%; 
+			border-radius: 500px 500px 0 0; 
+		  } 
+		  
+		  .button1 { 
+			padding: 12px 24px; 
+			margin-bottom: 40px; 
+		  } 
+		}
+
+						
+					
+					}
+					
+					.button1:hover {
+					color: white ;
+					background-color: #00008B ;
+					}
+
+								
+								a:hover {
+								  color: #007bff;                 
+								}
+								
+								.card:hover{
+								box-shadow: 0px 10px 20px rgba(65, 105, 225, 0.3);
+								}
+								
+							
+							
+
+					

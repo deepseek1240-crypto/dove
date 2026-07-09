@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>♊ GEMINI AI · AETHER STUDIO</title>
+    <style>
+        :root {
+            --bg-dark: #030712;
+            --bg-light: #0a0f1e;
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --text: #e0f2fe;
+            --text-muted: #94a3b8;
+            --border: #1e3a8a;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Header */
+        .header {
+            background-color: #0a1428;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 22px;
+            color: #7bc5ff;
+            letter-spacing: 1px;
+        }
+
+        .status-badge {
+            background: var(--bg-light);
+            border: 1px solid var(--accent);
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 12px;
+            color: #bbe4ff;
+        }
+
+        /* Main Container layout */
+        .main-container {
+            display: flex;
+            flex: 1;
+            gap: 20px;
+            min-height: 0; /* Prevents overflow */
+        }
+
+        /* Left Panel - Robot & Tools */
+        .left-panel {
+            width: 320px;
+            background-color: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Robot Image Area */
+        .robot-box {
+            width: 100%;
+            height: 250px;
+            border: 2px solid var(--accent);
+            background-color: #01050e;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .robot-box img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .tools-title {
+            color: var(--accent-light);
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            align-self: flex-start;
+            width: 100%;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 5px;
+        }
+
+        .tool-btn {
+            width: 100%;
+            background-color: #1e293b;
+            color: var(--text);
+            border: none;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .tool-btn:hover {
+            background-color: var(--accent);
+        }
+
+        .taskbar-info {
+            margin-top: auto;
+            font-size: 11px;
+            color: #b4d6ff;
+            border: 1px dashed var(--border);
+            padding: 8px;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        /* Right Panel - Chat Box */
+        .right-panel {
+            flex: 1;
+            background-color: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background-color: #0a1428;
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+            color: var(--accent-light);
+            font-weight: bold;
+        }
+
+        .chat-display {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Chat Bubbles */
+        .msg-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 80%;
+        }
+
+        .msg-container.user {
+            align-self: flex-end;
+        }
+
+        .msg-container.bot {
+            align-self: flex-start;
+        }
+
+        .msg-header {
+            font-size: 11px;
+            margin-bottom: 4px;
+            font-weight: bold;
+        }
+
+        .user .msg-header { color: #60a5fa; text-align: right; }
+        .bot .msg-header { color: #34d399; }
+
+        .bubble {
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+
+        .user .bubble { background-color: #0f2b50; color: #e0f2fe; }
+        .bot .bubble { background-color: #1e293b; color: #e0f2fe; }
+
+        /* Input Bar */
+        .input-area {
+            padding: 15px;
+            display: flex;
+            gap: 10px;
+            background-color: var(--bg-light);
+            border-top: 1px solid var(--border);
+        }
+
+        .input-area textarea {
+            flex: 1;
+            background-color: #0c1428;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text);
+            padding: 10px;
+            font-family: inherit;
+            resize: none;
+            height: 40px;
+            outline: none;
+        }
+
+        .input-area button {
+            background-color: #1e40af;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .input-area button:hover {
+            background-color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>♊ GEMINI AI · AETHER STUDIO</h1>
+        <div>
+            <span class="status-badge">⚡ dual-core intelligence · gemini class ultra</span>
+            <span style="color: #10b981; font-weight: bold; margin-left: 15px;">● ONLINE</span>
+        </div>
+    </div>
+
+    <div class="main-container">
+        
+        <div class="left-panel">
+            <div class="robot-box">
+                <img id="robot-img" src="robot 3.png" alt="Cute Robot">
+            </div>
+
+            <div class="tools-title">⚡ GEMINI TOOLS</div>
+            <button class="tool-btn" onclick="useTool('Explain quantum computing simply.')">🔍 Gemini Search</button>
+            <button class="tool-btn" onclick="useTool('Enhance this text: \'i am writing web code\'')">📝 Text Editor · Enhance</button>
+            <button class="tool-btn" onclick="useTool('Describe a futuristic neon synthwave city.')">🎨 Imagen · AI Vision</button>
+
+            <div class="taskbar-info">
+                🧠 AETHER'S TASKBAR · gemini neural bridge · realtime cognition
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="chat-header">💬 gemini chat · contextual intelligence</div>
+            <div class="chat-display" id="chat-display">
+                <div class="msg-container bot">
+                    <div class="msg-header">♊ GEMINI AETHER</div>
+                    <div class="bubble">🌟 Welcome to Gemini Aether! I'm your full web-integrated Gemini AI — creative, analytical, and ready. How can I illuminate your world today?</div>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <textarea id="user-input" placeholder="Ask Gemini Aether anything... (Press Enter to Send)"></textarea>
+                <button onclick="sendMessage()">➤ SEND</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // ⚠️ YAHA APNI REAL GEMINI API KEY DALO
+        const API_KEY = "YOUR_GEMINI_API_KEY_HERE"; 
+
+        const chatDisplay = document.getElementById('chat-display');
+        const userInput = document.getElementById('user-input');
+        const robotImg = document.getElementById('robot-img');
+
+        // Agar image na mile toh automatic cute fallback robot lag jayega
+        robotImg.onerror = function() {
+            this.src = "https://i.ibb.co/Xf8H0fS/robot-fallback.png"; // Placeholder cute robot
+        };
+
+        // Enter key se send karne ke liye
+        userInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        function useTool(promptText) {
+            userInput.value = promptText;
+            userInput.focus();
+        }
+
+        function appendMessage(sender, roleName, text) {
+            const timeStr = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            
+            const msgContainer = document.createElement('div');
+            msgContainer.classList.add('msg-container', sender);
+
+            const msgHeader = document.createElement('div');
+            msgHeader.classList.add('msg-header');
+            msgHeader.innerText = `${roleName} [${timeStr}]`;
+
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            bubble.innerText = text;
+
+            msgContainer.appendChild(msgHeader);
+            msgContainer.appendChild(bubble);
+            chatDisplay.appendChild(msgContainer);
+            
+            // Auto scroll down
+            chatDisplay.scrollTop = chatDisplay.scrollHeight;
+        }
+
+        async function sendMessage() {
+            const text = userInput.value.trim();
+            if (!text) return;
+
+            // 1. User message add karein
+            appendMessage('user', '👤 YOU', text);
+            userInput.value = '';
+
+            if (API_KEY === "YOUR_GEMINI_API_KEY_HERE" || API_KEY === "") {
+                appendMessage('bot', '♊ GEMINI AETHER', "⚠️ Error: Please open index.html code and add your real Gemini API key!");
+                return;
+            }
+
+            // 2. Gemini API Call (Direct from Browser)
+            try {
+                // Temporary loading response
+                const loadingDiv = document.createElement('div');
+                loadingDiv.style.color = '#94a3b8';
+                loadingDiv.style.fontSize = '13px';
+                loadingDiv.style.paddingLeft = '20px';
+                loadingDiv.innerText = "🧠 Thinking...";
+                chatDisplay.appendChild(loadingDiv);
+                chatDisplay.scrollTop = chatDisplay.scrollHeight;
+
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: text }] }]
+                    })
+                });
+
+                const data = await response.json();
+                chatDisplay.removeChild(loadingDiv); // remove loading
+
+                if (data.candidates && data.candidates[0].content.parts[0].text) {
+                    const reply = data.candidates[0].content.parts[0].text;
+                    appendMessage('bot', '♊ GEMINI AETHER', reply);
+                } else {
+                    appendMessage('bot', '♊ GEMINI AETHER', "🤖 I received an empty response. Please try again.");
+                }
+
+            } catch (error) {
+                console.error(error);
+                appendMessage('bot', '♊ GEMINI AETHER', "❌ Error connecting to Gemini API. Please check your internet or API key.");
+            }
+        }
+    </script>
+</body>
+</html>
